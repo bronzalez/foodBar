@@ -9,17 +9,56 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var displayLabel: UILabel!
+    
+    var number = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        displayLabel.text = String(number)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    @IBAction func onTap(_ sender: Any) {
+        if number % 3 == 0 && number % 5 == 0 {
+            view.backgroundColor = .red
+            displayLabel.text = "foo\nbar"
+        }
+        else if number % 3 == 0 {
+            view.backgroundColor = .green
+            displayLabel.text = "foo"
+        }
+        else if number % 5 == 0 {
+            view.backgroundColor = .yellow
+            displayLabel.text = "bar"
+        }
+        else {
+            view.backgroundColor = .black
+            displayLabel.text = String(number)
+        }
     }
-
-
+    
+    @IBAction func onLongPress(_ sender: Any) {
+        number = 0
+        displayLabel.text = String(number)
+        view.backgroundColor = .black
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
